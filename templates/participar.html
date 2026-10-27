@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+
+{% block conteudo %}
+
+
+<section class="secao estreita">
+
+    <span class="rotulo">
+        SUA VOZ
+    </span>
+
+    <h1>
+        Qual tema mais chamou sua atenção?
+    </h1>
+
+    <p class="introducao">
+        Não pediremos seu nome. Escolha um eixo
+        e explique brevemente sua escolha.
+    </p>
+
+
+    <!--
+    Mostra uma mensagem se o visitante
+    não preencher o formulário.
+    -->
+    {% if erro %}
+
+    <p class="erro">
+        {{ erro }}
+    </p>
+
+    {% endif %}
+
+
+    <form method="POST">
+
+        <label for="tema_id">
+            Tema
+        </label>
+
+
+        <select
+            id="tema_id"
+            name="tema_id"
+            required
+        >
+
+            <option value="">
+                Selecione
+            </option>
+
+
+            <!--
+            Carrega os seis temas do banco.
+            -->
+            {% for tema in temas %}
+
+            <option value="{{ tema['id'] }}">
+                {{ tema["nome"] }}
+            </option>
+
+            {% endfor %}
+
+        </select>
+
+
+        <label for="reflexao">
+            Reflexão
+        </label>
+
+
+        <textarea
+            id="reflexao"
+            name="reflexao"
+            maxlength="240"
+            rows="5"
+            required
+            placeholder="Esse tema me chamou atenção porque..."
+        ></textarea>
+
+
+        <small id="contador">
+            0 de 240 caracteres
+        </small>
+
+
+        <button
+            class="botao"
+            type="submit"
+        >
+            Registrar e ver painel
+        </button>
+
+    </form>
+
+</section>
+
+
+{% endblock %}
