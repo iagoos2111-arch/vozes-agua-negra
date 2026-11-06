@@ -1,0 +1,329 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+
+<!-- =====================================================
+     HERO
+     ===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-imagem"></div>
+
+    <div class="hero-conteudo limite">
+
+        <span class="hero-legenda">
+            Uma leitura de Torto Arado
+        </span>
+
+        <h1>
+            A terra<br>
+            também<br>
+            <em>lembra.</em>
+        </h1>
+
+        <p class="hero-descricao">
+            Memória, território, identidade e resistência
+            atravessam a história de uma comunidade que
+            aprendeu a permanecer.
+        </p>
+
+        <a href="#inicio-leitura" class="hero-link">
+            <span>Percorrer a história</span>
+            <span class="seta">↓</span>
+        </a>
+
+    </div>
+
+    <div class="hero-assinatura">
+        <span>ITAMAR VIEIRA JUNIOR</span>
+        <span>·</span>
+        <span>TORTO ARADO</span>
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     INTRODUÇÃO
+     ===================================================== -->
+
+<section id="inicio-leitura" class="introducao">
+
+    <div class="limite introducao-grid">
+
+        <div class="introducao-numero">
+            01
+        </div>
+
+        <div class="introducao-texto">
+
+            <span class="sobretitulo">
+                Antes de começar
+            </span>
+
+            <h2>
+                Uma história<br>
+                sobre aquilo<br>
+                que permanece.
+            </h2>
+
+            <p class="texto-grande">
+                Em <em>Torto Arado</em>, a terra não aparece
+                apenas como cenário. Ela carrega histórias,
+                trabalho, pertencimento e lembranças.
+            </p>
+
+            <p>
+                O romance de Itamar Vieira Junior acompanha
+                uma comunidade rural negra no interior da Bahia
+                e apresenta personagens atravessadas por
+                desigualdades, tradições, afetos e formas
+                de resistência.
+            </p>
+
+            <p>
+                A partir dessas experiências, este projeto
+                propõe uma leitura de seis temas presentes
+                na obra.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     IMAGEM / FRASE
+     ===================================================== -->
+
+<section class="imagem-interludio">
+
+    <div class="imagem-interludio-foto"></div>
+
+    <div class="imagem-frase">
+
+        <span>
+            "A memória também é uma forma
+            de permanecer."
+        </span>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SEIS CAMINHOS
+     ===================================================== -->
+
+<section class="temas">
+
+    <div class="limite">
+
+        <div class="temas-cabecalho">
+
+            <div>
+                <span class="sobretitulo">
+                    02 · Seis caminhos
+                </span>
+
+                <h2>
+                    Para ler<br>
+                    a obra.
+                </h2>
+            </div>
+
+            <p>
+                Os temas abaixo ajudam a observar diferentes
+                dimensões da narrativa. Não são capítulos
+                separados, mas fios que se cruzam durante
+                toda a história.
+            </p>
+
+        </div>
+
+
+        <div class="temas-lista">
+
+            {% for tema in temas %}
+
+            <article class="tema">
+
+                <div class="tema-numero">
+                    {{ "%02d"|format(loop.index) }}
+                </div>
+
+                <div class="tema-conteudo">
+
+                    <h3>
+                        {{ tema["nome"] }}
+                    </h3>
+
+                    <p>
+                        {{ tema["texto"] }}
+                    </p>
+
+                </div>
+
+                <div class="tema-seta">
+                    ↗
+                </div>
+
+            </article>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FRASE / TRANSIÇÃO
+     ===================================================== -->
+
+<section class="citacao">
+
+    <div class="limite">
+
+        <span class="aspas">“</span>
+
+        <p>
+            Conhecer uma história também é reconhecer
+            as pessoas que fizeram parte dela.
+        </p>
+
+        <span class="citacao-legenda">
+            memória · identidade · território
+        </span>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SOBRE O PROJETO
+     ===================================================== -->
+
+<section class="projeto">
+
+    <div class="limite projeto-grid">
+
+        <div class="projeto-imagem">
+            <div class="foto-detalhe"></div>
+
+            <span>
+                Água Negra · Bahia
+            </span>
+        </div>
+
+
+        <div class="projeto-texto">
+
+            <span class="sobretitulo">
+                03 · O projeto
+            </span>
+
+            <h2>
+                Ler também<br>
+                é escutar.
+            </h2>
+
+            <p>
+                Este projeto utiliza a informática como
+                ferramenta para apresentar uma leitura
+                de <em>Torto Arado</em>.
+            </p>
+
+            <p>
+                A proposta é aproximar literatura e tecnologia,
+                organizando informações, imagens e perguntas
+                em uma experiência digital de leitura.
+            </p>
+
+            <div class="projeto-linha"></div>
+
+            <p class="projeto-pequeno">
+                Literatura · Tecnologia · Educação
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     QUIZ
+     ===================================================== -->
+
+<section class="quiz-chamada">
+
+    <div class="quiz-textura"></div>
+
+    <div class="limite quiz-conteudo">
+
+        <span class="sobretitulo">
+            04 · Depois da leitura
+        </span>
+
+        <h2>
+            O que ficou<br>
+            com você?
+        </h2>
+
+        <p>
+            Agora é hora de voltar ao que foi apresentado
+            e testar sua compreensão da obra.
+        </p>
+
+        <a
+            href="{{ url_for('quiz') }}"
+            class="botao-organico"
+        >
+            Começar o quiz
+            <span>→</span>
+        </a>
+
+    </div>
+
+</section>
+
+<!-- Seção do QR Code -->
+<section class="secao-qrcode">
+
+  <div class="limite qrcode-conteudo">
+
+    <div class="qrcode-texto">
+
+      <span class="sobretitulo">Acesso Rápido</span>
+
+      <h2>Acesse o Quiz pelo celular</h2>
+
+      <p>Aponte a câmera do seu celular para o QR Code e responda direto no seu dispositivo.</p>
+    
+    </div>
+
+    <div class="qrcode-box">
+
+      <!-- O canvas do QR Code será gerado aqui -->
+      <div id="qrcode">
+        <img src="/static/imagens/qrcode.png" alt="QR Code para acesso ao Quiz">
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+{% endblock %}
+```
