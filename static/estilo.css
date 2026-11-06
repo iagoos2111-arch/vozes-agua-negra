@@ -1093,7 +1093,7 @@ nav a:hover::after {
 .questao legend {
     width: 100%;
     margin-bottom: 25px;
-    padding: 50px 0 10px;
+    padding: 0 0 14px;
     color: var(--terra-profunda);
     border-bottom: 1px solid var(--borda);
     font-family: Georgia, "Times New Roman", serif;
@@ -1443,4 +1443,45 @@ footer p {
     .qrcode-texto {
         max-width: 100%;
     }
+}
+
+/* =========================================================
+   RESULTADO DO QUIZ
+   ========================================================= */
+.resultado-cabecalho { padding: 34px; margin: 28px 0 34px; background: var(--papel-claro); border: 1px solid var(--borda); border-left: 5px solid var(--folha); box-shadow: 0 12px 32px rgba(55,35,24,.07); }
+.resultado-pontuacao { display:flex; align-items:baseline; flex-wrap:wrap; gap:10px; margin:0 0 12px; color:var(--terra-profunda); font-family:Georgia,"Times New Roman",serif; font-size:clamp(2.4rem,6vw,4rem); line-height:1.05; }
+.resultado-pontuacao small { color:var(--texto-suave); font-family:"Inter","Segoe UI",Arial,sans-serif; font-size:.95rem; }
+.resultado-lista { display:grid; gap:18px; margin:30px 0; }
+.correcao { padding:25px 28px; background:var(--papel-claro); border:1px solid var(--borda); border-left:5px solid var(--barro); border-radius:3px; box-shadow:0 8px 24px rgba(55,35,24,.05); }
+.correcao.certo { border-left-color:var(--folha); }
+.correcao.errado { border-left-color:var(--barro); }
+.correcao h3 { margin:0 0 14px; color:var(--terra-profunda); font-size:1.35rem; }
+.correcao.certo h3::before,.correcao.errado h3::before { display:inline-grid; place-items:center; width:27px; height:27px; margin-right:9px; border-radius:50%; font-family:Arial,sans-serif; font-size:.95rem; }
+.correcao.certo h3::before { content:"✓"; background:rgba(72,88,68,.12); color:var(--folha); }
+.correcao.errado h3::before { content:"!"; background:rgba(166,95,63,.12); color:var(--barro); }
+.correcao p { margin:8px 0 0; color:var(--texto-suave); }
+.correcao p strong { color:var(--terra-profunda); }
+.resultado-acoes { display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+.resultado-acoes .botao-secundario { display:inline-flex; align-items:center; margin-top:18px; padding:13px 20px; color:var(--terra); border:1px solid var(--borda); border-radius:4px; text-decoration:none; font-weight:700; transition:background .2s ease,transform .2s ease; }
+.resultado-acoes .botao-secundario:hover { background:var(--papel-escuro); transform:translateY(-2px); }
+
+/* =========================================================
+   PARTICIPAÇÃO / REFLEXÃO
+   ========================================================= */
+.form-participacao { display:grid; gap:12px; margin-top:32px; padding:32px; background:var(--papel-claro); border:1px solid var(--borda); border-radius:3px; box-shadow:0 12px 32px rgba(55,35,24,.06); }
+.form-participacao label { margin-top:10px; color:var(--terra-profunda); font-weight:700; font-size:.92rem; }
+.form-participacao select,.form-participacao textarea { width:100%; padding:14px 15px; color:var(--texto); background:var(--branco); border:1px solid rgba(74,44,32,.25); border-radius:3px; font:inherit; line-height:1.5; transition:border-color .2s ease,box-shadow .2s ease; }
+.form-participacao select { min-height:52px; cursor:pointer; }
+.form-participacao textarea { min-height:145px; resize:vertical; }
+.form-participacao select:focus,.form-participacao textarea:focus { outline:none; border-color:var(--barro); box-shadow:0 0 0 3px rgba(166,95,63,.13); }
+.form-participacao textarea::placeholder { color:#9a8c7e; }
+.form-participacao small { justify-self:end; color:var(--texto-suave); font-size:.82rem; }
+.form-participacao .botao { justify-self:start; margin-top:12px; cursor:pointer; font-family:inherit; }
+.erro { margin:22px 0; padding:13px 16px; color:#7b2f20; background:rgba(166,95,63,.10); border:1px solid rgba(166,95,63,.28); border-left:4px solid var(--barro); border-radius:3px; }
+@media (max-width:600px) {
+ .resultado-cabecalho { padding:24px 20px; }
+ .correcao { padding:21px 19px; }
+ .form-participacao { padding:23px 18px; }
+ .resultado-acoes { align-items:stretch; flex-direction:column; }
+ .resultado-acoes .botao,.resultado-acoes .botao-secundario,.form-participacao .botao { width:100%; justify-content:center; }
 }
